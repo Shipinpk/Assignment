@@ -54,7 +54,9 @@ public class Test {
 		
 		driver.findElement(By.xpath("//input[@id='p_search']")).sendKeys("017");
 		
-		driver.findElement(By.xpath("//li[@id='ui-id-3']")).click();
+	   Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//*[contains(text(),'Alminas [ 017ae616 ]')]")).click();
 		
 		
 		//driver.findElement(By.xpath("//input[@id='p_phone']")).sendKeys("");
@@ -65,12 +67,18 @@ public class Test {
 		
 		driver.findElement(By.xpath("//textarea[@id='billingAddress']")).sendKeys("calicut");
 		
+		driver.findElement(By.xpath("//input[@id='sameAddressChkbox'] ")).click();
+		
 		/*
 		 * adding product
 		 */
 		driver.findElement(By.xpath("//a[@class='pos_add_product pull-right addProduct margin1P nonpos'] ")).click();
 		
+		Thread.sleep(3000);
+		
 		driver.findElement(By.xpath("//a[@id='353189_anchor']")).click();
+		
+		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath("//input[@class='chkbox']")).click();
 		
@@ -84,10 +92,15 @@ public class Test {
 		
 		driver.findElement(By.xpath("//button[@class='btn btn-primary margin1P purchase-placeorder'] ")).click();
 		
+		
+		Thread.sleep(4000);
+		
 		/*
 		 * submit button to place the order
 		 */
 		driver.findElement(By.xpath("//button[@id='purchase-placeorder']")).click();
+		
+		Thread.sleep(3000);
 		
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@id='action_icon_354191']")));
@@ -95,7 +108,15 @@ public class Test {
 		
 		driver.findElement(By.xpath("//li[@class='readonlySelector']//label[@name='e_354191'][contains(text(),'Payment')]")).click();
 		
+		driver.findElement(By.xpath("//form[@id='payment_form']//input[@id='paid_amount']")).sendKeys("20");
 		
+		driver.findElement(By.xpath("//div[@id='paymentModal']//input[@id='ref_no']")).sendKeys("1234");
+		
+		/*
+		 * click on save button
+		 */
+		
+		driver.findElement(By.xpath("//input[@id='paymentSaveButton']")).click();
 		
 		
 		
